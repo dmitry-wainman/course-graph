@@ -59,6 +59,30 @@ class Stage {
         return null;
     }
 
+    _addElementToStage(x,y) {
+        let el = null;
+        switch (this.el_type) {
+            case "Start": 
+                el = new StartElement(this.el_type, x, y);
+                break;
+            case "Lesson":
+                el = new LessonElement(this.el_type, x, y);
+                break;
+            case "Quiz":
+                el = new QuizElement(this.el_type, x, y);
+                break;
+            case "Achivement":
+                el = new AchivementElement(this.el_type, x, y);
+                break;
+            default:
+                el = new Element(this.el_type, x, y);
+        }
+        
+        this.addElement(el);
+        this.mode = "IDLE";
+        
+    }
+
     stageMouseDown(e){
         
         let x = e.offsetX;
@@ -66,22 +90,9 @@ class Stage {
     
                      
         if (this.mode == "ADD_ELEMENT") {
-            if (this.el_type == "Start") {
-                let el = new StartElement(this.el_type, x, y);
-                this.addElement(el);
-            } else if (this.el_type == "Lesson") {
-                let el = new LessonElement(this.el_type, x, y);
-                this.addElement(el);
-             
-            } else if (this.el_type == "Quiz") {
-                let el = new QuizElement(this.el_type, x, y);
-                this.addElement(el);
-            } else {
-                let el = new Element(this.el_type, x, y);
-                this.addElement(el);
-            }
-            
-            this.mode = "IDLE";
+
+           this._addElementToStage(x,y);
+          
 
         } else {    
 

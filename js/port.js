@@ -1,5 +1,5 @@
 class Port {
-    constructor(el, type, dx, dy, w, h){
+    constructor(el, type, dx, dy, w=24, h=12){
         this.el = el;
         this.type = type;
         this.dx = dx;

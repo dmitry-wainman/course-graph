@@ -1,13 +1,24 @@
 <html>
     <body>
         <h1>Test events</h1>
-        <div>
+        <div width="300px" style="background: #5b8894;">
             <button id="btnAddLesson" onclick="addElementToStage(stage, 'Lesson')">Add Lesson</button>
             <button id="btnAddQuiz" onclick="addElementToStage(stage, 'Quiz')">Add Quiz</button>
+            <button id="btnAddQuiz" onclick="addElementToStage(stage, 'Achivement')">Add Achivement</button>
+            
         </div>
-        <div><canvas id="stage" width="800" height="600" style="border: 1px; background: #f3fff2;"></canvas></div>
+        <div style="width:800px; height: 600px; background: #ffe600; overflow: scroll;">
+            <div>
+                <canvas id="stage" width="2000" height="2000" style="border: 1px; background: #f3fff2;"></canvas>
+            </div>
+        </div>
+        <div><p id="jsonString">JSON goes here</p></div>
 
         <script src="./js/element.js"></script>
+        <script src="./js/start-element.js"></script>
+        <script src="./js/lesson-element.js"></script>
+        <script src="./js/quiz-element.js"></script>
+        <script src="./js/achivement-element.js"></script>
         <script src="./js/port.js"></script>
         <script src="./js/connector.js"></script>
         <script src="./js/stage.js"></script>
@@ -32,6 +43,7 @@
                 stage.stageMouseMove(e);
             }
 
+       
             const stage_canvas = document.getElementById("stage")
             const stage = new Stage(stage_canvas);
 

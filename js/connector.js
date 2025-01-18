@@ -31,13 +31,16 @@ class Connector {
         let x2 = this.end_port.getCenterX();
         let y2 = this.end_port.getCenterY();
                  
+        let delta_y = Math.abs(y2 - y1) / 2 + 20;
 
         ctx.strokeStyle = "#0099AA";
         ctx.lineWidth = 2;
         ctx.lineCap = "round";
         ctx.beginPath();
         ctx.moveTo(x1, y1);
-        ctx.bezierCurveTo(x1, y1 + 100, x2, y2 - 100, x2, y2);
+        ctx.lineTo(x1, y1 + 10);
+        ctx.bezierCurveTo(x1, y1 + delta_y, x2, y2 - delta_y, x2, y2 -10);
+        ctx.lineTo(x2, y2);
         ctx.stroke();
        
     }
